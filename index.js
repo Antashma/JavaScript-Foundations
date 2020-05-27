@@ -6,6 +6,7 @@
 const principal = 200000;
 const interestRate = 0.05;
 const years = 30;
+const name = "Sam";
 
 
 
@@ -32,6 +33,16 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
+/*  Formula from README:  M = P [ I ( 1 + I )^N ] / [ ( 1 + I )^N – 1 ]
+Where...
+`P` = Principal amount (the total amount borrowed)
+`I` = Interest rate on the mortgage
+`N` = Number of periods (monthly mortgage payments) */
+
+const numerator =  principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods));
+const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
+const monthlyRate = numerator / denominator;
+console.log(monthlyRate.toFixed(2));
 
 
 
@@ -40,7 +51,9 @@ When your math is correct, monthlyRate will equal 1073.64
 
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
-
+function mortgageCalculator() {
+    
+}
 
 
 
