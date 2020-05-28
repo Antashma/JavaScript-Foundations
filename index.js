@@ -128,6 +128,28 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 */
 
 
+function variableInterestRate(p, i , n) {
+    //calculate varibale int rates
+    const name = 'Jane Doe';
+    //for loop info
+    let rateStart = i - 0.02;
+    let rateEnd = i + 0.02;
+    for (let count = 0; count < 10 && rateStart < rateEnd; count++) {
+        rateStart +=0.005;
+        let monthlyInterestRate = rateStart/12;
+        let periods = n*12;
+    
+        let numerator =  p * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods));
+        let denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
+    
+        let monthlyRate = numerator / denominator;
+        console.log(
+            `${name}, with an interest rate of ${rateStart.toFixed(3)}, your monthtly rate is ${Math.round(monthlyRate)}`);
+     }
+
+}
+
+variableInterestRate(200000, 0.04, 30);
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
