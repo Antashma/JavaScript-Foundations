@@ -39,10 +39,10 @@ Where...
 `I` = Interest rate on the mortgage
 `N` = Number of periods (monthly mortgage payments) */
 
-let numerator =  principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods));
+let numerator = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods));
 let denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
 let monthlyRate = numerator / denominator;
-//console.log(monthlyRate.toFixed(2));
+console.log("task 2: " + monthlyRate);
 
 
 
@@ -51,10 +51,10 @@ let monthlyRate = numerator / denominator;
 
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
-function mortgageCalculator() {
-    return name + ', your monthly rate is ' + monthlyRate.toFixed(2);
+function mortgageCalculator1() {
+    return `${name} your monthly rate is ${monthlyRate}`;
 }
-console.log(mortgageCalculator());
+console.log("task 3: " + mortgageCalculator1());
 
 
 
@@ -85,7 +85,30 @@ console.log(name + " your monthly rate is " + mortgageCalculator2(200000, 0.05, 
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
 
+function mortgageCalculator3(p, i, n, c) {
 
+    if (c > 740) {
+        i -= 0.005;
+        console.log(`Your credit score is ${c} (excellent) and your interest rate has decreased to ${i}.`);
+    } else if (c < 660){
+        i += 0.005;
+        console.log(`Your credit score is ${c} (poor) and your interest rate has increased to ${i}.`);
+    } else {
+        console.log(`Your credit score is ${c} (fair) and does not effect your interest rate at this time.`);
+    }
+    let monthlyInterestRate = i/12;
+    let periods = n*12;
+
+    let numerator =  p * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods));
+    let denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
+
+    let monthlyRate = numerator / denominator;
+    return `Your monthly rate is ${monthlyRate.toFixed(2)}`;
+}
+
+console.log(
+    mortgageCalculator3(200000, 0.05, 30, 775)
+)
 
 
 // 🏡 Task 6: Loops
