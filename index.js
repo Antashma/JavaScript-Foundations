@@ -42,7 +42,9 @@ Where...
 let numerator = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, periods));
 let denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
 let monthlyRate = numerator / denominator;
-console.log("task 2: " + monthlyRate);
+
+console.log('TASK 2:')
+console.log(monthlyRate.toFixed(2));
 
 
 
@@ -52,9 +54,10 @@ console.log("task 2: " + monthlyRate);
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 function mortgageCalculator1() {
-    return `${name} your monthly rate is ${monthlyRate}`;
+    return `${name} your monthly rate is ${monthlyRate.toFixed(2)}`;
 }
-console.log("task 3: " + mortgageCalculator1());
+console.log('task 3:');
+console.log(mortgageCalculator1());
 
 
 
@@ -74,6 +77,7 @@ function mortgageCalculator2(p, i, n) {
     let monthlyRate = numerator / denominator;
     return monthlyRate;
 }
+console.log('task 4:');
 console.log(name + " your monthly rate is " + mortgageCalculator2(200000, 0.05, 30));
 
 
@@ -105,9 +109,9 @@ function mortgageCalculator3(p, i, n, c) {
     let monthlyRate = numerator / denominator;
     return `Your monthly rate is ${monthlyRate.toFixed(2)}`;
 }
-
+console.log('task: 5');
 console.log(
-    mortgageCalculator3(200000, 0.05, 30, 775)
+    mortgageCalculator3(200000, 0.05, 30, 600)
 )
 
 
@@ -134,8 +138,8 @@ function variableInterestRate(p, i , n) {
     //for loop info
     let rateStart = i - 0.02;
     let rateEnd = i + 0.02;
-    for (let count = 0; count < 10 && rateStart < rateEnd; count++) {
-        rateStart +=0.005;
+
+    for (let count = 0; count < 10 ; count++) {
         let monthlyInterestRate = rateStart/12;
         let periods = n*12;
     
@@ -145,10 +149,12 @@ function variableInterestRate(p, i , n) {
         let monthlyRate = numerator / denominator;
         console.log(
             `${name}, with an interest rate of ${rateStart.toFixed(3)}, your monthtly rate is ${Math.round(monthlyRate)}`);
+        rateStart +=0.005;
+
      }
 
 }
-
+console.log('task 6:')
 variableInterestRate(200000, 0.04, 30);
 
 
